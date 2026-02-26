@@ -6,5 +6,5 @@ public interface ISnake
 
     public Vector3 GetPastPosition();
 
-    public void SetFrontSnake(ISnake frontSnake);
+    public void SetFrontSnake(GameObject frontSnake);
 }

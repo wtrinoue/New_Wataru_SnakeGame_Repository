@@ -43,7 +43,7 @@ public class CoroutineManager : MonoBehaviour
         while (true)
         {
             // null のオブジェクトは除外
-            for (int i = coroutines.Count - 1; i >= 0; i--)
+            for (int i = 0; i < coroutines.Count; i++)
             {
                 if (coroutines[i] == null)
                 {

@@ -6,10 +6,9 @@ public class SnakeManager : MonoBehaviour
 {
     // シングルトンインスタンス
     public static SnakeManager Instance { get; private set; }
-    public GameObject snakeHeadObject;
+    public GameObject snakeHead;
     public GameObject bodyPrefab;
-    private ISnake snakeHead;
-    private ISnake snakeTail;
+    private GameObject snakeTail;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,32 +21,29 @@ public class SnakeManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        snakeHead = snakeHeadObject.GetComponent<ISnake>();
         SetSnakeTail(snakeHead);
     }
 
-    public void SetSnakeTail(ISnake snakeTail)
+    public void SetSnakeTail(GameObject snakeTail)
     {
         this.snakeTail = snakeTail;
     }
 
-    public ISnake GetSnakeTail()
+    public GameObject GetSnakeTail()
     {
         return snakeTail;
     }
 
-    void GenerateBody(ISnake frontSnake)
+    public void GenerateBody(GameObject frontSnake, GameObject apple)
     {
-        GameObject bodyObj = Instantiate(bodyPrefab);
-
-        BodyBehaviour body = bodyObj.GetComponent<BodyBehaviour>();
-
-        if (body == null)
-        {
-            Debug.LogError("BodyBehaviour が付いていません");
-            return;
-        }
-
-        body.SetFrontSnake(frontSnake);
+        Vector3 applePosition = apple.transform.position;
+        GameObject body = Instantiate(
+            bodyPrefab,
+            applePosition,
+            Quaternion.identity
+        );
+        var bodySnake = body.GetComponent<ISnake>();
+        bodySnake.SetFrontSnake(frontSnake);
+        SetSnakeTail(body);
     }
 }

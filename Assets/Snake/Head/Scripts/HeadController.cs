@@ -73,5 +73,5 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
         return pastPos;
     }
 
-    public void SetFrontSnake(ISnake frontSnake){}
+    public void SetFrontSnake(GameObject frontSnake){}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyBehaviour : MonoBehaviour, ICoroutineUpdatable, ISnake
 {
     public GameObject frontObject;   // 前のオブジェクト
-    public ISnake frontSnake;
+    private ISnake frontSnake;
     private Vector3 nextPosition;   // 次に移動する位置
     private Vector3 pastPos;
 
@@ -24,6 +24,8 @@ public class BodyBehaviour : MonoBehaviour, ICoroutineUpdatable, ISnake
                 Debug.LogError("ISnake を実装していません");
             }
         }
+        // 初期過去位置を現在位置で初期化
+        pastPos = transform.position;
     }
 
     void OnDisable()
@@ -56,8 +58,10 @@ public class BodyBehaviour : MonoBehaviour, ICoroutineUpdatable, ISnake
         return pastPos;
     }
 
-    public void SetFrontSnake(ISnake frontSnake)
+    public void SetFrontSnake(GameObject frontSnake)
     {
-        this.frontSnake = frontSnake;
+        // 前方オブジェクトとインターフェース参照を両方設定する
+        this.frontObject = frontSnake;
+        this.frontSnake = frontSnake.GetComponent<ISnake>();
     }
 }
