@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Unity 2022.3.50f1
-public class HeadController : MonoBehaviour, ICoroutineUpdatable
+public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
 {
     // 現在の進行方向
     private Vector2Int direction = Vector2Int.right;
+    private Vector3 pastPos;
 
     void Start()
     {
@@ -58,10 +59,19 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable
     {
         // 現在位置を取得
         Vector3 currentPos = transform.position;
+        // 現在位置を記録
+        pastPos = transform.position;
 
         // 1マス進む（1ユニット進む想定）
         Vector3 newPos = currentPos + new Vector3(direction.x, direction.y, 0) * 0.5f;
 
         transform.position = newPos;
     }
+
+    public Vector3 GetPastPosition()
+    {
+        return pastPos;
+    }
+
+    public void SetFrontSnake(ISnake frontSnake){}
 }
