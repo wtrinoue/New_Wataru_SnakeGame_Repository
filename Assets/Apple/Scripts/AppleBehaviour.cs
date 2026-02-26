@@ -19,6 +19,9 @@ public class AppleBehaviour : MonoBehaviour
             GameObject frontSnake = snakeManager.GetSnakeTail();
             snakeManager.GenerateBody(frontSnake, gameObject);
             Destroy(gameObject);
+        } else
+        {
+            Destroy(gameObject);
         }
     }
 }
