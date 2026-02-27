@@ -74,4 +74,13 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
     }
 
     public void SetFrontSnake(GameObject frontSnake){}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Headタグが付いているか確認
+        if (other.CompareTag("Body"))
+        {
+            Debug.Log("ゲームオーバー！");
+        }
+    }
 }
