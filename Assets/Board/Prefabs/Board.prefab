@@ -98,5 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 8495049332171581902, guid: 07267fcd1f78b554eb132acc3203e845, type: 3}
+  wallPrefab: {fileID: 6523130139750994146, guid: 1b1ed323854322243b8c4ad44e29d8b6, type: 3}
   width: 16
   height: 16
