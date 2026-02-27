@@ -25,7 +25,7 @@ public class AppleBehaviour : MonoBehaviour
         if (other.CompareTag("Head"))
         {
             GameObject frontSnake = snakeManager.GetSnakeTail();
-            snakeManager.GenerateBody(frontSnake, gameObject);
+            snakeManager.GenerateBody(frontSnake);
             Destroy(gameObject);
         } else
         {

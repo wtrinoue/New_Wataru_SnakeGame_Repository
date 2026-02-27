@@ -34,12 +34,12 @@ public class SnakeManager : MonoBehaviour
         return snakeTail;
     }
 
-    public void GenerateBody(GameObject frontSnake, GameObject apple)
+    public void GenerateBody(GameObject frontSnake)
     {
-        Vector3 applePosition = apple.transform.position;
+        Vector3 frontSnakePosition = frontSnake.GetComponent<ISnake>().GetPastPosition();
         GameObject body = Instantiate(
             bodyPrefab,
-            applePosition,
+            frontSnakePosition,
             Quaternion.identity
         );
         var bodySnake = body.GetComponent<ISnake>();
