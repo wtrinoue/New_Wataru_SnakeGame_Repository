@@ -63,8 +63,8 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
 
         if(appleCount >= appleCountLimit) return;
 
-        int randomX = Random.Range(0, width);
-        int randomY = Random.Range(0, height);
+        int randomX = Random.Range(1, width+1);
+        int randomY = Random.Range(1, height+1);
 
         float offset = cellScale;
 
