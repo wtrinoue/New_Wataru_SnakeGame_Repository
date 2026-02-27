@@ -8,10 +8,28 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
     [Header("Board Settings")]
     [SerializeField] private int width = 20;
     [SerializeField] private int height = 20;
+    [SerializeField] private int appleCountLimit = 1;
 
     // BoardManagerと同じ基準
     private Vector2 startPos = new Vector2(-4f, 4f);
     private float cellScale = 0.5f;
+    // りんごのカウント
+    private int appleCount = 0;
+    // シングルトンインスタンス
+    public static AppleManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
@@ -43,6 +61,8 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
             return;
         }
 
+        if(appleCount >= appleCountLimit) return;
+
         int randomX = Random.Range(0, width);
         int randomY = Random.Range(0, height);
 
@@ -55,5 +75,15 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
         );
 
         Instantiate(applePrefab, position, Quaternion.identity);
+    }
+
+    public void AddAppleCount()
+    {
+        appleCount += 1;
+    }
+
+    public void SubAppleCount()
+    {
+        appleCount -= 1;
     }
 }

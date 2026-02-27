@@ -5,10 +5,18 @@ using UnityEngine;
 public class AppleBehaviour : MonoBehaviour
 {
     private SnakeManager snakeManager;
+    private AppleManager appleManager;
     // Start is called before the first frame update
     void Start()
     {
         snakeManager = SnakeManager.Instance;
+        appleManager = AppleManager.Instance;
+        appleManager.AddAppleCount();
+    }
+
+    void OnDisable()
+    {
+        appleManager.SubAppleCount();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
