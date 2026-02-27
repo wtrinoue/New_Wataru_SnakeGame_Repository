@@ -41002,14 +41002,6 @@ PrefabInstance:
       propertyPath: snakeHead
       value: 
       objectReference: {fileID: 495694943}
-    - target: {fileID: 4736677993900612225, guid: e6d142f24b3128a418fd581f0d5a501c, type: 3}
-      propertyPath: bodyPrefab
-      value: 
-      objectReference: {fileID: 7125926350359998246, guid: afbbaa077698bba48b6e25b541c5d93e, type: 3}
-    - target: {fileID: 4736677993900612225, guid: e6d142f24b3128a418fd581f0d5a501c, type: 3}
-      propertyPath: snakeHeadObject
-      value: 
-      objectReference: {fileID: 495694943}
     - target: {fileID: 5576864775074206238, guid: e6d142f24b3128a418fd581f0d5a501c, type: 3}
       propertyPath: m_Name
       value: SnakeManager
@@ -53274,7 +53266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682280953231770457, guid: d3151fc38f3d0c941885705f64c25ffe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8682280953231770457, guid: d3151fc38f3d0c941885705f64c25ffe, type: 3}
       propertyPath: m_LocalRotation.w

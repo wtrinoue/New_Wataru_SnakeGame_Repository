@@ -73,6 +73,11 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
         return pastPos;
     }
 
+    public Vector3 GetCurrentPosition()
+    {
+        return transform.position;
+    }
+
     public void SetFrontSnake(GameObject frontSnake){}
 
     private void OnTriggerEnter2D(Collider2D other)

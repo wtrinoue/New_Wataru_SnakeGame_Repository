@@ -50,12 +50,24 @@ public class BodyBehaviour : MonoBehaviour, ICoroutineUpdatable, ISnake
         pastPos = transform.position;
 
         // 自分をそこへ移動
-        transform.position = nextPosition;
+        transform.position = new Vector3(nextPosition.x, nextPosition.y, -2);
+
+        Vector3 direction = frontSnake.GetCurrentPosition() - nextPosition;
+
+        if (direction != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     public Vector3 GetPastPosition()
     {
         return pastPos;
+    }
+
+    public Vector3 GetCurrentPosition(){
+        return transform.position;
     }
 
     public void SetFrontSnake(GameObject frontSnake)
