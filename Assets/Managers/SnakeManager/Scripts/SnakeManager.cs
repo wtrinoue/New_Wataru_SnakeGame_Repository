@@ -20,7 +20,6 @@ public class SnakeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
         SetSnakeTail(snakeHead);
     }
 

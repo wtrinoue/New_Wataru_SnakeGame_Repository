@@ -18,7 +18,6 @@ public class SceneLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SceneLoad(string sceneName)

@@ -28,7 +28,6 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()

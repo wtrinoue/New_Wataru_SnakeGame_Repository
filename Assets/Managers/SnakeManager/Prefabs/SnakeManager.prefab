@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6346dc89a9801bd47a5244831e5e53c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeHead: {fileID: 0}
+  snakeHead: {fileID: 4137304065869579401, guid: d3151fc38f3d0c941885705f64c25ffe, type: 3}
   bodyPrefab: {fileID: 7125926350359998246, guid: afbbaa077698bba48b6e25b541c5d93e, type: 3}

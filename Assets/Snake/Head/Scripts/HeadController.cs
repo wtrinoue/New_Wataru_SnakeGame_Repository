@@ -85,7 +85,7 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
         // Headタグが付いているか確認
         if (other.CompareTag("Body"))
         {
-            Debug.Log("ゲームオーバー！");
+            SceneLoader.Instance.SceneLoad("ResultScene");
         }
     }
 }
