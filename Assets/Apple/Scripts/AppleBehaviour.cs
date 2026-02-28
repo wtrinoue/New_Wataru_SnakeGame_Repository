@@ -6,6 +6,7 @@ public class AppleBehaviour : MonoBehaviour
 {
     private SnakeManager snakeManager;
     private AppleManager appleManager;
+    public AudioClip eatClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,8 @@ public class AppleBehaviour : MonoBehaviour
         {
             GameObject frontSnake = snakeManager.GetSnakeTail();
             snakeManager.GenerateBody(frontSnake);
-            Destroy(gameObject);
+            AudioManager.Instance.PlaySe(eatClip, 1f);
+            Destroy(gameObject,2f);
         } else
         {
             Destroy(gameObject);
