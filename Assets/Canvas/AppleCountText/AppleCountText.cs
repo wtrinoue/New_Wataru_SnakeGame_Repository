@@ -13,6 +13,11 @@ public class AppleCountText : MonoBehaviour
         UpdateText();
     }
 
+    void Update()
+    {
+        UpdateText();
+    }
+
     void UpdateText()
     {
         int count = ResultManager.Instance.GetCount();
