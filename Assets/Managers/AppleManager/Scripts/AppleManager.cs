@@ -36,6 +36,7 @@ public class AppleManager : MonoBehaviour, ICoroutineUpdatable
         {
             CoroutineManager.Instance.Register(this);
         }
+        ResultManager.Instance.ResetCount();
     }
 
     void OnDisable()

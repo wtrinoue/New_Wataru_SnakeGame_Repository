@@ -27,6 +27,7 @@ public class AppleBehaviour : MonoBehaviour
         {
             GameObject frontSnake = snakeManager.GetSnakeTail();
             snakeManager.GenerateBody(frontSnake);
+            ResultManager.Instance.AddCount();
             AudioManager.Instance.PlaySe(eatClip, 1f);
             Destroy(gameObject,2f);
         } else
