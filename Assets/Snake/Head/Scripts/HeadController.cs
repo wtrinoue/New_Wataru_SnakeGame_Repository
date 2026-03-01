@@ -66,6 +66,9 @@ public class HeadController : MonoBehaviour, ICoroutineUpdatable, ISnake
         Vector3 newPos = currentPos + new Vector3(direction.x, direction.y, 0) * 0.5f;
 
         transform.position = newPos;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     public Vector3 GetPastPosition()
